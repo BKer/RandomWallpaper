@@ -27,6 +27,32 @@ will add an option to not remove the images. If
 [wallhaven](http://alpha.wallhaven.cc) is unreachable a fallback is used. This
 is a folder with images you would like to use when the connection fails.
 
+# Example systemd service & timer files
+```
+[Unit]
+Description=Set a random wallpaper.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/php /path/to/randomWallpaper.php
+```
+
+```
+[Unit]
+Description=Run the randomwallpaper service every 30 minutes.
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=30min
+
+[Install]
+WantedBy=timers.target
+```
+
+You can put those files in `~/.config/systemd/user/` and name them for example:
+`randomwallpaper.service` and `randomwallpaper.timer`. Afterwards enable the
+timer using `systemctl --user enable randomwallpaper.timer`
+
 ## License
 The MIT License (MIT)
 
