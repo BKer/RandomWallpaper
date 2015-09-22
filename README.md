@@ -27,7 +27,7 @@ will add an option to not remove the images. If
 [wallhaven](http://alpha.wallhaven.cc) is unreachable a fallback is used. This
 is a folder with images you would like to use when the connection fails.
 
-# Example systemd service & timer files
+## Example systemd service & timer files
 ```
 [Unit]
 Description=Set a random wallpaper.
