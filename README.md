@@ -35,6 +35,7 @@ Description=Set a random wallpaper.
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/php /path/to/randomWallpaper.php
+Environment=DISPLAY=:0
 ```
 
 ```
@@ -52,6 +53,9 @@ WantedBy=timers.target
 You can put those files in `~/.config/systemd/user/` and name them for example:
 `randomwallpaper.service` and `randomwallpaper.timer`. Afterwards enable the
 timer using `systemctl --user enable randomwallpaper.timer`
+
+Ideally this service should depend on an xorg.target or wm.target. However I'm
+not starting Xorg as a systemd unit yet.
 
 ## License
 The MIT License (MIT)
